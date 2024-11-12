@@ -1,0 +1,3 @@
+# ESP32_UART_Sniffer
+
+This program reads data from two UART interfaces on an ESP32 in real-time, using FreeRTOS for multitasking. Each UART task continuously monitors its respective UART port, reading incoming data byte by byte. When a byte is received, it starts accumulating data and waits for a configurable timeout (in milliseconds) to check if more data arrives. If no additional data is received within the timeout, the accumulated data is sent to a queue. A separate task retrieves data from each queue, formats the timestamp in hh:mm:ss.ms format, and prints the data in uppercase hexadecimal format with zero-padded bytes. This setup provides efficient, real-time serial data handling and logging.
